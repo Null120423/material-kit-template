@@ -57,7 +57,13 @@ export default function LoginView() {
           label="Username or Email address"
           error={state.isUserNameError}
           helperText={state.isUserNameError ? 'Username is required' : null}
-          onChange={(e) => setState({ ...state, username: e.target.value, isUserNameError: false })}
+          onChange={(e) =>
+            setState({
+              ...state,
+              username: e.target.value,
+              isUserNameError: false,
+            })
+          }
         />
 
         <TextField
@@ -66,13 +72,24 @@ export default function LoginView() {
           type={showPassword ? 'text' : 'password'}
           error={state.isPasswordError}
           value={state.password}
-          onChange={(e) => setState({ ...state, password: e.target.value, isPasswordError: false })}
+          onChange={(e) =>
+            setState({
+              ...state,
+              password: e.target.value,
+              isPasswordError: false,
+            })
+          }
           helperText={state.isPasswordError ? 'Password is required' : null}
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
-                <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
-                  <Iconify icon={showPassword ? 'eva:eye-fill' : 'eva:eye-off-fill'} />
+                <IconButton
+                  onClick={() => setShowPassword(!showPassword)}
+                  edge="end"
+                >
+                  <Iconify
+                    icon={showPassword ? 'eva:eye-fill' : 'eva:eye-off-fill'}
+                  />
                 </IconButton>
               </InputAdornment>
             ),
@@ -80,7 +97,12 @@ export default function LoginView() {
         />
       </Stack>
 
-      <Stack direction="row" alignItems="center" justifyContent="flex-end" sx={{ my: 3 }}>
+      <Stack
+        direction="row"
+        alignItems="center"
+        justifyContent="flex-end"
+        sx={{ my: 3 }}
+      >
         <Link variant="subtitle2" underline="hover">
           Forgot password?
         </Link>
@@ -95,7 +117,9 @@ export default function LoginView() {
         color="inherit"
         onClick={handleLogin}
       >
-        {isLoading && <CircularProgress color="inherit" size="1rem" sx={{ mr: 1 }} />}
+        {isLoading && (
+          <CircularProgress color="inherit" size="1rem" sx={{ mr: 1 }} />
+        )}
         Login
       </LoadingButton>
     </>

@@ -197,7 +197,10 @@ export default function SelectBoardPopover() {
             }}
             key={index}
           >
-            <Avatar src={option.thumbnails} sx={{ mr: 2, minWidth: 100, borderRadius: 0.5 }} />
+            <Avatar
+              src={option.thumbnails}
+              sx={{ mr: 2, minWidth: 100, borderRadius: 0.5 }}
+            />
             <Typography sx={{ fontSize: 14 }}>{option.name}</Typography>
           </MenuItem>
         ))}

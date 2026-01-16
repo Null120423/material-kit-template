@@ -46,7 +46,9 @@ const ColorPicker = forwardRef(
         {...other}
       >
         {colors.map((color) => {
-          const hasSelected = singleSelect ? selected === color : selected.includes(color);
+          const hasSelected = singleSelect
+            ? selected === color
+            : selected.includes(color);
 
           return (
             <ButtonBase
@@ -68,7 +70,8 @@ const ColorPicker = forwardRef(
                   height: 20,
                   bgcolor: color,
                   borderRadius: '50%',
-                  border: (theme) => `solid 1px ${alpha(theme.palette.grey[500], 0.16)}`,
+                  border: (theme) =>
+                    `solid 1px ${alpha(theme.palette.grey[500], 0.16)}`,
                   ...(hasSelected && {
                     transform: 'scale(1.3)',
                     boxShadow: `4px 4px 8px 0 ${alpha(color, 0.48)}`,
@@ -101,10 +104,16 @@ const ColorPicker = forwardRef(
 );
 
 ColorPicker.propTypes = {
-  colors: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+  colors: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]),
   limit: PropTypes.number,
   onSelectColor: PropTypes.func,
-  selected: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+  selected: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]),
   sx: PropTypes.object,
 };
 

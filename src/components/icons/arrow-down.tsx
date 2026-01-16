@@ -1,7 +1,12 @@
 import { FC } from 'react';
 import type { IconProps } from 'src/types/icons';
 
-const ArrowDownIcon: FC<IconProps> = ({ width = 20, height = 12, color = 'black', ...props }) => (
+const ArrowDownIcon: FC<IconProps> = ({
+  width = 20,
+  height = 12,
+  color = 'black',
+  ...props
+}) => (
   <svg
     width={width}
     height={height}

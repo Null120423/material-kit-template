@@ -119,7 +119,16 @@ export interface PageParams {
 
 export interface Filter {
   field: string;
-  operator: 'eq' | 'neq' | 'gt' | 'gte' | 'lt' | 'lte' | 'in' | 'nin' | 'contains';
+  operator:
+    | 'eq'
+    | 'neq'
+    | 'gt'
+    | 'gte'
+    | 'lt'
+    | 'lte'
+    | 'in'
+    | 'nin'
+    | 'contains';
   value: any;
 }
 
@@ -137,7 +146,14 @@ export interface ThemeConfig {
 // ============================================================================
 export interface ButtonProps {
   variant?: 'text' | 'outlined' | 'contained';
-  color?: 'inherit' | 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning';
+  color?:
+    | 'inherit'
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'error'
+    | 'info'
+    | 'warning';
   size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
   loading?: boolean;

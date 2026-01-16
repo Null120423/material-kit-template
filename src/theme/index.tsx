@@ -2,7 +2,10 @@ import PropTypes from 'prop-types';
 import { useMemo } from 'react';
 
 import CssBaseline from '@mui/material/CssBaseline';
-import { createTheme, ThemeProvider as MUIThemeProvider } from '@mui/material/styles';
+import {
+  createTheme,
+  ThemeProvider as MUIThemeProvider,
+} from '@mui/material/styles';
 import { customShadows } from './custom-shadows';
 import { overrides } from './overrides';
 import { palette } from './palette';

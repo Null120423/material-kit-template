@@ -9,7 +9,9 @@ export const daysLeftToExpire = (date: string | Date): number => {
   return daysLeft;
 };
 
-export const handleErrorApi = async <T>(callback: () => Promise<T>): Promise<T> => {
+export const handleErrorApi = async <T>(
+  callback: () => Promise<T>
+): Promise<T> => {
   try {
     return await callback();
   } catch (error: any) {
@@ -99,7 +101,9 @@ const Helper: HelperType = {
     text ? moment(text).format(format || 'DD/MM/YY') : '',
 
   formatDateTime: (text: string | Date, format?: string): string =>
-    text && moment(text).isValid() ? moment(text).format(format || 'HH:mm, DD/MM/YY') : '',
+    text && moment(text).isValid()
+      ? moment(text).format(format || 'HH:mm, DD/MM/YY')
+      : '',
 
   convertDateMMDDToDDMM: (date: string): string => {
     const day0 = date?.split('/')[0];

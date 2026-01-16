@@ -8,9 +8,13 @@ import { StyledRootScrollbar, StyledScrollbar } from 'g<0>';
 // ----------------------------------------------------------------------
 
 const Scrollbar = forwardRef(({ children, sx, ...other }, ref) => {
-  const userAgent = typeof navigator === 'undefined' ? 'SSR' : navigator.userAgent;
+  const userAgent =
+    typeof navigator === 'undefined' ? 'SSR' : navigator.userAgent;
 
-  const mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
+  const mobile =
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      userAgent
+    );
 
   if (mobile) {
     return (

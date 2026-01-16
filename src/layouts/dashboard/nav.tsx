@@ -72,7 +72,11 @@ export default function Nav({ openNav, onCloseNav }) {
 
   const renderUpgrade = (
     <Box sx={{ px: 2.5, pb: 3, mt: 10 }}>
-      <Stack alignItems="center" spacing={3} sx={{ pt: 5, borderRadius: 2, position: 'relative' }}>
+      <Stack
+        alignItems="center"
+        spacing={3}
+        sx={{ pt: 5, borderRadius: 2, position: 'relative' }}
+      >
         <Box
           component="img"
           src="/assets/illustrations/illustration_avatar.png"

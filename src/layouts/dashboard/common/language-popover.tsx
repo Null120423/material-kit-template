@@ -75,7 +75,12 @@ export default function LanguagePopover() {
             onClick={() => handleClose()}
             sx={{ typography: 'body2', py: 1 }}
           >
-            <Box component="img" alt={option.label} src={option.icon} sx={{ width: 28, mr: 2 }} />
+            <Box
+              component="img"
+              alt={option.label}
+              src={option.icon}
+              sx={{ width: 28, mr: 2 }}
+            />
 
             {option.label}
           </MenuItem>
