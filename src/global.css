@@ -1,12 +1,10 @@
 /* scrollbar */
 @import 'simplebar-react/dist/simplebar.min.css';
 
-
-
 .hide-scroll {
-    overflow: hidden; /* Hide scrollbars for all browsers */
+  overflow: hidden; /* Hide scrollbars for all browsers */
 }
 
 .hide-scroll::-webkit-scrollbar {
-    display: none; /* Hide scrollbars for WebKit browsers */
+  display: none; /* Hide scrollbars for WebKit browsers */
 }
