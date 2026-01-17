@@ -7,10 +7,12 @@ interface QueryProviderProps {
 }
 
 export function QueryProvider({ children }: QueryProviderProps) {
+  const isDevelopment = import.meta.env.DEV;
+
   return (
     <QueryClientProvider client={queryClient}>
       {children}
-      <ReactQueryDevtools initialIsOpen={false} />
+      {isDevelopment && <ReactQueryDevtools initialIsOpen={false} />}
     </QueryClientProvider>
   );
 }

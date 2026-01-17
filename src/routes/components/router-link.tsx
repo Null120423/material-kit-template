@@ -1,5 +1,7 @@
-import { forwardRef, HTMLAttributes, Ref } from 'react';
-import { Link, LinkProps } from 'react-router-dom';
+import { forwardRef, type HTMLAttributes, type Ref } from 'react';
+import { Link, type LinkProps } from 'react-router-dom';
+
+import { logger } from '@/utils/logger';
 
 // ----------------------------------------------------------------------
 
@@ -8,9 +10,20 @@ interface RouterLinkProps extends HTMLAttributes<HTMLAnchorElement> {
 }
 
 const RouterLink = forwardRef<HTMLAnchorElement, RouterLinkProps>(
-  ({ href, ...other }, ref: Ref<HTMLAnchorElement>) => (
-    <Link ref={ref} to={href} {...(other as LinkProps)} />
-  )
+  ({ href, children, onClick, ...other }, ref: Ref<HTMLAnchorElement>) => {
+    const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+      logger.info('Navigation: Link clicked', { href });
+      onClick?.(e);
+    };
+
+    const { to, ...restOther } = other as LinkProps;
+
+    return (
+      <Link ref={ref} to={href} onClick={handleClick} {...restOther}>
+        {children}
+      </Link>
+    );
+  }
 );
 
 RouterLink.displayName = 'RouterLink';

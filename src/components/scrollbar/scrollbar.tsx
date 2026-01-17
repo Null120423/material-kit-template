@@ -2,12 +2,14 @@ import PropTypes from 'prop-types';
 import { forwardRef, memo } from 'react';
 
 import Box from '@mui/material/Box';
-
-import { StyledRootScrollbar, StyledScrollbar } from 'g<0>';
+import { StyledRootScrollbar, StyledScrollbar } from './styles';
 
 // ----------------------------------------------------------------------
-
-const Scrollbar = forwardRef(({ children, sx, ...other }, ref) => {
+type Props = {
+  children: React.ReactNode;
+  sx?: object;
+};
+const Scrollbar = forwardRef(({ children, sx, ...other }: Props, ref) => {
   const userAgent =
     typeof navigator === 'undefined' ? 'SSR' : navigator.userAgent;
 

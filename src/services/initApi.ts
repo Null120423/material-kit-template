@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { getAccessToken } from 'src/helper';
 
-const initApi = (url, headers = {}) => {
+const initApi = (url: string, headers = {}) => {
   if (url === '') throw new Error('url not found');
   const api = axios.create({
     baseURL: url,

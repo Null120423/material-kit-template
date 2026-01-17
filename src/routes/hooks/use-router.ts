@@ -1,6 +1,8 @@
 import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { logger } from '@/utils/logger';
+
 // ----------------------------------------------------------------------
 
 interface Router {
@@ -16,11 +18,26 @@ export function useRouter(): Router {
 
   const router = useMemo(
     (): Router => ({
-      back: () => navigate(-1),
-      forward: () => navigate(1),
-      reload: () => window.location.reload(),
-      push: (href: string) => navigate(href),
-      replace: (href: string) => navigate(href, { replace: true }),
+      back: () => {
+        logger.info('Navigation: Going back');
+        navigate(-1);
+      },
+      forward: () => {
+        logger.info('Navigation: Going forward');
+        navigate(1);
+      },
+      reload: () => {
+        logger.info('Page: Reloading');
+        window.location.reload();
+      },
+      push: (href: string) => {
+        logger.info('Navigation: Navigating to route', { href });
+        navigate(href);
+      },
+      replace: (href: string) => {
+        logger.info('Navigation: Replacing route', { href });
+        navigate(href, { replace: true });
+      },
     }),
     [navigate]
   );

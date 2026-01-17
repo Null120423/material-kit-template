@@ -2,7 +2,7 @@ import LoadingView from '@/components/loadingView';
 import { lazy, Suspense } from 'react';
 import { Navigate, Outlet, useRoutes } from 'react-router-dom';
 
-import DashboardLayout from '@/layouts/dashboard';
+import DashboardLayout from '@/layouts';
 
 export const IndexPage = lazy(() => import('@/pages/private/app'));
 export const LoginPage = lazy(() => import('@/pages/public/login'));

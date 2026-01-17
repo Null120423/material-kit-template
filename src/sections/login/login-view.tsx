@@ -4,7 +4,6 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
-import CircularProgress from '@mui/material/CircularProgress';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -14,12 +13,11 @@ import { alpha, useTheme } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
-import { bgGradient } from 'src/theme/css';
+import { bgGradient } from '@/theme/css';
 
-import Iconify from 'src/components/iconify';
-import Logo from 'src/components/logo';
-import { useAuthAction } from 'src/redux/features/auth/action';
-import { useAuthState } from 'src/redux/features/auth/authSlice';
+import Iconify from '@/components/iconify';
+import Logo from '@/components/logo';
+import logger from '@/utils/logger';
 
 // ----------------------------------------------------------------------
 
@@ -30,8 +28,6 @@ export default function LoginView() {
     username: '',
     password: '',
   });
-  const { onLogin } = useAuthAction();
-  const { isLoading } = useAuthState();
   const theme = useTheme();
 
   const [showPassword, setShowPassword] = useState(false);
@@ -46,7 +42,10 @@ export default function LoginView() {
     if (state.username === '' || state.password === '') {
       return;
     }
-    await onLogin({ username: state.username, password: state.password });
+    logger.info('Login attempt', {
+      username: state.username,
+      password: state.password,
+    });
   }
 
   const renderForm = (
@@ -117,9 +116,9 @@ export default function LoginView() {
         color="inherit"
         onClick={handleLogin}
       >
-        {isLoading && (
+        {/* {isLoading && (
           <CircularProgress color="inherit" size="1rem" sx={{ mr: 1 }} />
-        )}
+        )} */}
         Login
       </LoadingButton>
     </>
